@@ -31,10 +31,35 @@ There you will find installation requirements, instructions, tutorials, and trou
 
 ## Developing
 
-If you want to help with development, you will need to do a few things via the command line:
+This fork is packaged with a Docker config to help make running ProjectSend locally even easier. Here's how to get started:
 
-1. Download the npm and composer dependencies with the commands ````npm install```` and ````composer update````
-1. Run the default gulp task simply with ````gulp```` to compile the main CSS and JS assets files.
+First, make sure you have the necessary tools installed:
+
+- [Git](https://git-scm.com/downloads)
+- [Docker](https://docs.docker.com/get-docker/)
+- [Composer](https://getcomposer.org/download/)
+- [NPM](https://nodejs.org/en/download/)
+- [Gulp](https://gulpjs.com/docs/en/getting-started/quick-start)
+
+💡: These tools may be available through package managers like Homebrew, Chocolatey, etc.
+
+### Run ProjectSend on your machine
+
+1. Clone the repository
+2. Run `npm install` and `composer update` to install both front- and back-end dependencies.
+3. In a dedicated terminal window, run `gulp` to compile the main CSS and JS assets files.
+2. In another dedicated terminal window, run `docker-compose up`.
+  - This will start three containers: `web`, `db`, and `phpmyadmin`.
+  - If you'd rather monitor logs in the Docker Desktop dashboard, you can use `docker-compose start` to run the containers without taking over your terminal.
+3. You're ready to go!
+
+- Visit `http://localhost` to begin installation through the included wizard.
+- Visit `http://localhost:8080` to access the phpMyAdmin database management tool.
+
+### Troubleshooting
+
+Our Dockerfile should work on most systems, but if you encounter an error you should double-check the log output during `docker-compose up` first.
+If the containers are building but you are experiencing Apache errors, you can troubleshoot config files within the `web_1` container at `/etc/apache2/`.
 
 ## How to join the project
 
