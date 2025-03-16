@@ -1,4 +1,9 @@
+
+
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 /**
  * Contains the form and the processes used to install ProjectSend.
  */
