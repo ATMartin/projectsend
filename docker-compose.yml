@@ -17,9 +17,10 @@ services:
       docker-php-ext-configure gd --with-freetype --with-jpeg && 
       docker-php-ext-install -j$(nproc) gd mysqli pdo_mysql zip && 
       a2enmod rewrite && 
-      sed -ri -e 's!/var/www/html!/var/www/html!g' /etc/apache2/sites-available/*.conf && 
-      sed -ri -e 's!/var/www/!/var/www/html!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf && 
-      chown -R www-data:www-data /var/www && 
+      sed -ri -e 's!/var/www/>!/var/www/html/>!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf &&
+      mv /var/www/html/.git /var/.git &&
+      chown -R www-data:www-data /var/www &&
+      mv /var/.git /var/www/html/.git &&
       apache2-foreground"
 
   db:
