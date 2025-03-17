@@ -29,10 +29,19 @@
  * Database driver to use with PDO.
  * Possible options: mysql, mssql
 */
-define('DB_NAME', 'projectsend');
-define('DB_USER', 'projectsend_user');
-define('DB_PASSWORD', 'your_secure_password');
+define('DB_DRIVER', 'mysql');
+
+/** Database name */
+define('DB_NAME', 'database');
+
+/** Database host (in most cases it's localhost) */
 define('DB_HOST', 'localhost');
+
+/** Database username (must be assigned to the database) */
+define('DB_USER', 'username');
+
+/** Database password */
+define('DB_PASSWORD', 'password');
 
 /**
  * Prefix for the tables. Set to something other than tbl_ for increased
